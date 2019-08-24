@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono&display=swap");
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+body {
+  font-family: 'Ubuntu Mono', monospace;
+  height: 100vh;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+.content {
+  display: flex;
+  flex: 1;
+  transition: all .3s ease-in-out;
+}
+
+@media only screen and (max-width : 500px) {
+  .landing-bottom h3 {
+    /* margin-left: -.3em; */
+    font-size: 10vw;
+    transition: font-size 0.5s ease-in-out;
+  }
+  .project {
+    padding-right: 1em;
+  }
+  .project-images img {
+    padding: 0;
+    margin-bottom: 2em;
+    max-width: 80vw;
+  }
+  .project-images {
+    flex-direction: column;
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .about-section {
+    flex-direction: column;
+  }
+  .profile-img {
+    max-width: 80vw;
+    min-width: 80vw;
+  }
+  .about-image {
+    padding-left: 1em;
+    text-align: left;
+  }
+  .about-text {
+    padding-right: 1.5em;
+    padding-left: 1em;
+  }
+}
+
+@media only screen and (max-width : 400px) {
+  .landing h1 {
+    font-size: 20vw;
+  }
+  .landing h3 {
+    font-size: 15vw;
+  }
+  /* .about-section {
+    display: flex;
+    flex-direction: column;
+  } */
+  /* .about-text {
+    padding-left: 1em;
+  } */
+  /* .about-image {
+    padding-left: 1em;
+    margin-bottom: 3em;
+  } */
+  /* .profile-img {
+    border-radius: 5px;
+  } */
+
+  .project-preview {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+    margin-bottom: 3em;
+  }
+  .project-preview-description {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 3em;
+  }
+  .project-preview-description div {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+  }
+  .project-title {
+    padding-bottom: .5em;
+    font-size: 3vw;
+  }
+  .project-skills h2 {
+    display: none;
+  }
+  .project-preview-image {
+    padding: 0;
+    padding-right: 3em;
+  }
+  /* .project-img {
+    max-width: 85vw;
+  } */
+  .form-section {
+    flex-direction: column;
+  }
+  /* .project {
+    display: flex;
+    flex-direction: column;
+  } */
+}
