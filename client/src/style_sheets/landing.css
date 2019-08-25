@@ -61,3 +61,6 @@
 .landing-bottom h2:hover {
   cursor: pointer;
 }
+@media only screen and (max-width : 650px) {
+
+}

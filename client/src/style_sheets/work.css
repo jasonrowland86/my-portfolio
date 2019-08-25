@@ -87,3 +87,16 @@
 .project-preview-image {
   transition: all .3s ease-in;
 }
+@media only screen and (max-width : 400px) {
+  .project-preview-image  {
+    width: 200px;
+    overflow:hidden;
+    margin:0;
+  }
+  .project-preview-title {
+    height: 93px;
+  }
+  .project-technologies {
+    display: none;
+  }
+}

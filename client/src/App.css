@@ -80,7 +80,7 @@ a {
     border-radius: 5px;
   } */
 
-  .project-preview {
+  /* .project-preview {
     display: flex;
     flex-direction: column;
     padding-left: 1em;
@@ -107,13 +107,13 @@ a {
   .project-preview-image {
     padding: 0;
     padding-right: 3em;
-  }
+  } */
   /* .project-img {
     max-width: 85vw;
   } */
-  .form-section {
+  /* .form-section {
     flex-direction: column;
-  }
+  } */
   /* .project {
     display: flex;
     flex-direction: column;

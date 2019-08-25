@@ -73,7 +73,7 @@ class Work extends React.Component {
               <div className='under'>
                 <div className="project-preview-title">
                   <h1>{project.data.name}</h1>
-                  <h2>{project.data.technologies}</h2>
+                  <h2 className="project-technologies">{project.data.technologies}</h2>
                 </div>
 
                 <div style={this.state.prvwImg} className="project-preview-image">
