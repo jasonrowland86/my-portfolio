@@ -137,7 +137,7 @@ class Contact extends React.Component {
     if (!this.state.submitButton) {
       return <div className="submit sub"><div className="submit-loading"><div>.</div><div>.</div><div>.</div></div></div>
     } else {
-      return <input className="submit" type="submit" value="send" />
+      return <div className="submit" onClick={this.handleSubmit}>send</div>
     }
   }
 
@@ -145,7 +145,7 @@ class Contact extends React.Component {
     return(
       <div className="contact-section">
         <div style={this.state.contactSection}>
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <div className="form-section">
               <div className="form-section-inputs">
                 <div className="response" style={this.state.showResponse}>{this.state.response}</div>
