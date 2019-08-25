@@ -5,6 +5,7 @@
   width: 100vw;
   background-color: #FF7DEE;
   padding-top: 1em;
+  /* height: 100vh; */
 }
 .contact-section-title {
   display: flex;
