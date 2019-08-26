@@ -42,11 +42,15 @@ class Project extends React.Component {
     this.setState({ prvwImg: {opacity: 1} });
   }
 
-  handleProjectLink(projectLink) {
-    if (projectLink === '') {
+  handleProjectLink(project) {
+    if (project.data.appLink === '') {
       return <div style={{display: "none"}}></div>
     } else {
-      return <a href={projectLink} target="blank"><div>View App</div></a>
+      if (project.data.isClient) {
+        return <a href={project.data.appLink} target="blank"><div>View Site</div></a>
+      } else {
+        return <a href={project.data.appLink} target="blank"><div>View App</div></a>
+      }
     }
   }
 
@@ -66,7 +70,7 @@ class Project extends React.Component {
               <div className="project-description"><p>{project[0].data.description}</p></div>
               <div className="project-skills"><h2>{project[0].data.technologies}</h2></div>
               <div className="project-links">
-                {this.handleProjectLink(project[0].data.appLink)}
+                {this.handleProjectLink(project[0])}
                 <a href={project[0].data.githubLink} target="blank"><div>View on GitHub</div></a>
               </div>
             </div>
