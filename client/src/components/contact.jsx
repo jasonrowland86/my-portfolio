@@ -75,7 +75,10 @@ class Contact extends React.Component {
                     lastName: this.state.lastName,
                     email: this.state.email,
                     message: this.state.message + "\n"  + "- " + this.state.firstName + " " + this.state.lastName
-                }
+                },
+                headers: {
+                  'Content-Type': 'text/plain;charset=utf-8',
+                },
             }).then((response)=>{
                 console.log(response);
                 if (response.status === 200){
