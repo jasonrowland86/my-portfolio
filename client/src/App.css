@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono&display=swap");
 
+#root {
+  height: 100%;
+}
+
 .App {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 html {
   height: 100%;
