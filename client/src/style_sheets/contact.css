@@ -4,7 +4,6 @@
   flex-direction: column;
   width: 100vw;
   background-color: #FF7DEE;
-  /* height: 100vh; */
 }
 .contact-section-title {
   display: flex;
@@ -126,4 +125,14 @@ label {
   padding: .3em 1em;
   font-weight: bold;
   transition: all .3s ease-out;
+}
+@media only screen and (max-width : 650px) {
+  textarea {
+    height: 20vw;
+  }
+}
+@media only screen and (max-width : 450px) {
+  textarea {
+    height: 30vw;
+  }
 }

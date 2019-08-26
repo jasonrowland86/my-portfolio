@@ -1,8 +1,7 @@
 .about-section {
   width: 100vw;
-  /* height: 90vh; */
   background-color: #70DBFB;
-  padding-top: 3em;
+  padding-top: 2em;
 }
 .about-section {
   display: flex;
@@ -31,11 +30,11 @@
 }
 .about-image {
   padding: 0 2em;
-  /* text-align: center; */
 }
 .profile-img {
-  max-width: 40vw;
-  min-width: 40vw;
+
+  max-width: 35vw;
+  min-width: 35vw;
 }
 @media only screen and (max-width : 650px) {
   .about-section-div {

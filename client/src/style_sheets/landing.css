@@ -39,10 +39,11 @@
   cursor: default;
 }
 .landing-right {
+  width: 53vw;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  flex: 1;
+  /* flex: 1; */
 }
 .landing h1 {
   font-size: 22vw;
