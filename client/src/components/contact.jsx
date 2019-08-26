@@ -62,6 +62,7 @@ class Contact extends React.Component {
 
   handleSubmit(e) {
     console.log('handle submit');
+    console.log(this.state);
     e.preventDefault();
     if (this.state.firstName !== "" && this.state.email !== "" && this.state.message !== "") {
       if (this.emailIsValid(this.state.email)) {

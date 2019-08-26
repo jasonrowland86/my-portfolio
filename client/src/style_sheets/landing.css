@@ -3,8 +3,8 @@
   text-align: left;
   background-color: black;
   color: white;
-  height: auto;
-  width: auto;
+  /* height: auto;
+  width: auto; */
   display: flex;
   flex-direction: column;
   transition: all .3s ease-in-out;
