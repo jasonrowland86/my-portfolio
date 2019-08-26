@@ -82,10 +82,12 @@ class Contact extends React.Component {
                     this.clearForm();
                     this.showResponse(response);
                 }else {
+                    console.log(response);
                     this.setState({submit: true});
                     this.showResponse(response);
                 }
             }).catch((response)=>{
+                console.log(response);
                 this.clearForm();
                 this.showResponse(response);
             })
@@ -128,7 +130,6 @@ class Contact extends React.Component {
       submitButton: true
     })
     let inputs = document.querySelectorAll('.input');
-    console.log(inputs);
     for(let i=0; i<inputs.length; i++) {
       inputs[i].value = "";
     }

@@ -27,7 +27,7 @@ app.post('/', (req, res) => {
       let mailOptions = {
         from: req.body.email,
         to: 'jasonrowland86@gmail.com',
-        subject: 'Contact Form Submitted: ' + req.body.firstName + " " + req.body.lastName,
+        subject: 'Contact form submitted from: ' + req.body.firstName + " " + req.body.lastName,
         text: req.body.message
       };
       nodemailer.transporter.sendMail(mailOptions, (err, info) => {
@@ -35,7 +35,8 @@ app.post('/', (req, res) => {
           console.log("Nodemailer error: " + err);
           res.send({message: "Oops something went wrong"});
         } else {
-          console.log('Email sent: ' + info.response);
+          console.log(info);
+          console.log("Thank you, Your message was sent");
           res.send({message: "Thank you, Your message was sent"});
         }
       });
