@@ -74,7 +74,7 @@ class Contact extends React.Component {
                     firstName: this.state.firstName,
                     lastName: this.state.lastName,
                     email: this.state.email,
-                    messsage: this.state.message
+                    message: this.state.message + "\n"  + "- " + this.state.firstName + " " + this.state.lastName
                 }
             }).then((response)=>{
                 console.log(response);
