@@ -4,7 +4,6 @@
   flex-direction: column;
   width: 100vw;
   background-color: #FF7DEE;
-  padding-top: 1em;
   /* height: 100vh; */
 }
 .contact-section-title {
@@ -121,8 +120,8 @@ label {
 }
 .response {
   text-align: center;
-  margin: 0 auto;
-  margin-bottom: 1em;
+  margin-top: .5em;
+  margin-bottom: .5em;
   background-color: rgba(255,255,255,0.9);
   padding: .3em 1em;
   font-weight: bold;
