@@ -33,7 +33,7 @@ const projects = [
         'https://jasonrowland-portfolio-site-images.s3.amazonaws.com/wholesky-app-4.png',
         'https://jasonrowland-portfolio-site-images.s3.amazonaws.com/wholesky-app-5.png'
       ],
-      appLink: 'http://wholeskyhealingarts.com/',
+      appLink: 'https://wholeskyhealingarts.herokuapp.com/',
       githubLink: 'https://github.com/jasonrowland86/WholeSky-React-Express',
     }
   },
