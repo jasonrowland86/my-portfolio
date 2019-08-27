@@ -2,12 +2,14 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const request = require('request');
+const cors = require('cors');
 
 const app = express();
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
 
+app.use(cors());
 app.use(bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -35,8 +37,8 @@ app.post('/', (req, res) => {
           console.log("Nodemailer error: " + err);
           res.send({message: "Oops something went wrong"});
         } else {
-          console.log(info);
-          console.log("Thank you, Your message was sent");
+          // console.log(info);
+          console.log("Message sent");
           res.send({message: "Thank you, Your message was sent"});
         }
       });

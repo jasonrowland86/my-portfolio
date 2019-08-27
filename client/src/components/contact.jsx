@@ -61,8 +61,6 @@ class Contact extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log('handle submit');
-    console.log(this.state);
     e.preventDefault();
     if (this.state.firstName !== "" && this.state.email !== "" && this.state.message !== "") {
       if (this.emailIsValid(this.state.email)) {
@@ -75,22 +73,16 @@ class Contact extends React.Component {
                     lastName: this.state.lastName,
                     email: this.state.email,
                     message: this.state.message + "\n"  + "- " + this.state.firstName + " " + this.state.lastName
-                },
-                headers: {
-                  'Content-Type': 'text/plain;charset=utf-8',
-                },
+                }
             }).then((response)=>{
-                console.log(response);
                 if (response.status === 200){
                     this.clearForm();
                     this.showResponse(response);
                 }else {
-                    console.log(response);
                     this.setState({submit: true});
                     this.showResponse(response);
                 }
             }).catch((response)=>{
-                console.log(response);
                 this.clearForm();
                 var response = {data: {message: 'Oops something went wrong'}}
                 this.showResponse(response);
