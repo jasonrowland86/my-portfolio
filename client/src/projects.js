@@ -13,7 +13,7 @@ const projects = [
         'https://jasonrowland-portfolio-site-images.s3.amazonaws.com/eande-3.png',
         'https://jasonrowland-portfolio-site-images.s3.amazonaws.com/eande-4.png'
       ],
-      appLink: 'https://eandeautomotiveservices.herokuapp.com/',
+      appLink: 'https://eandeautomotiveservices.com/',
       githubLink: 'https://github.com/jasonrowland86/eandeautomotiveservices',
     }
   },
