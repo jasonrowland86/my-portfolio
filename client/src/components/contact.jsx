@@ -92,6 +92,7 @@ class Contact extends React.Component {
             }).catch((response)=>{
                 console.log(response);
                 this.clearForm();
+                var response = {data: {message: 'Oops something went wrong'}}
                 this.showResponse(response);
             })
       } else {
@@ -99,7 +100,7 @@ class Contact extends React.Component {
         this.showResponse(response);
       }
     } else {
-      let response = {data: {message: "Missing field"}}
+      var response = {data: {message: "Missing field"}}
       this.showResponse(response);
     }
   }
