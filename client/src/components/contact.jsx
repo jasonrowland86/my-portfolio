@@ -64,6 +64,7 @@ class Contact extends React.Component {
     e.preventDefault();
     if (this.state.firstName !== "" && this.state.email !== "" && this.state.message !== "") {
       if (this.emailIsValid(this.state.email)) {
+        console.log('axios post');
         this.setState({submitButton: false});
         axios({
                 method: "POST",
@@ -72,28 +73,31 @@ class Contact extends React.Component {
                     firstName: this.state.firstName,
                     lastName: this.state.lastName,
                     email: this.state.email,
-                    message: this.state.message + "\n"  + "- " + this.state.firstName + " " + this.state.lastName
+                    message: this.state.message + "\n"  + "-" + " " + this.state.firstName + " " + this.state.lastName
                 }
             }).then((response)=>{
                 if (response.status === 200){
+                    console.log('200');
                     this.clearForm();
                     this.showResponse(response);
                 }else {
+                    console.log('not 200');
                     this.setState({submit: true});
                     this.showResponse(response);
                 }
             }).catch((response)=>{
+                console.log('error');
                 this.clearForm();
-                var response = {data: {message: 'Oops something went wrong'}}
-                this.showResponse(response);
+                let catchResponse = {data: {message: 'Oops something went wrong'}}
+                this.showResponse(catchResponse);
             })
       } else {
-        let response = {data: {message: "Email format invalid"}}
+        var response = {data: {message: "Email format invalid"}}
         this.showResponse(response);
       }
     } else {
-      var response = {data: {message: "Missing field"}}
-      this.showResponse(response);
+      let missingFieldResponse = {data: {message: "Missing field"}}
+      this.showResponse(missingFieldResponse);
     }
   }
 

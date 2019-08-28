@@ -61,6 +61,9 @@
 .landing-bottom h2:hover {
   cursor: pointer;
 }
+@media only screen and (min-width: 1100px) {
+
+}
 @media only screen and (max-width : 500px) {
   .landing-top {
     padding-left: 1em;
