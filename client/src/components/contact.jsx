@@ -76,6 +76,7 @@ class Contact extends React.Component {
                     message: this.state.message + "\n"  + "-" + " " + this.state.firstName + " " + this.state.lastName
                 }
             }).then((response)=>{
+                console.log(response);
                 if (response.status === 200){
                     console.log('200');
                     this.clearForm();
