@@ -67,8 +67,9 @@ class Contact extends React.Component {
         console.log('axios post');
         this.setState({submitButton: false});
         axios({
-                method: "POST",
-                url:"/",
+                method: "GET",
+                url:"/sendEmail",
+                headers: [this.state.firstName, this.state.lastName, this.state.email, this.state.message],
                 data: {
                     firstName: this.state.firstName,
                     lastName: this.state.lastName,
