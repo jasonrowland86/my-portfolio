@@ -2,47 +2,51 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const request = require('request');
-const cors = require('cors');
+// const cors = require('cors');
 
 const app = express();
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../client/build')));
+// app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static('public'));
 
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  res.JSON({message: 'test'});
+  // res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 const nodemailer = require('./services/nodemailer');
-app.post('/', (req, res) => {
+app.get('/sendEmail', (req, res) => {
   console.log('post!');
-  console.log(req.body);
-  if(req.body.firstName === '' || req.body.email === '' || req.body.message === '') {
-      res.send({message: "Message not sent, missing field"});
+  console.log(req.headers);
+  console.log("Message sent from " + req.headers[0] + " " + req.headers[1]);
+  // let mailOptions = {
+  //   from: req.body.email,
+  //   to: 'jasonrowland86@gmail.com',
+  //   subject: 'Contact form submitted from: ' + req.body.firstName + " " + req.body.lastName,
+  //   text: req.body.message
+  // };
+  let mailOptions = {
+    from: req.headers[2],
+    to: 'jasonrowland86@gmail.com',
+    subject: 'Contact form submitted from: ' + req.headers[0] + " " + req.headers[1],
+    text: req.headers[3]
+  };
+  nodemailer.transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.log("Nodemailer error: " + err);
+      res.send({message: "Oops something went wrong"});
     } else {
-      console.log("Message sent from " + req.body.firstName + " " + req.body.lastName);
-      let mailOptions = {
-        from: req.body.email,
-        to: 'jasonrowland86@gmail.com',
-        subject: 'Contact form submitted from: ' + req.body.firstName + " " + req.body.lastName,
-        text: req.body.message
-      };
-      nodemailer.transporter.sendMail(mailOptions, (err, info) => {
-        if (err) {
-          console.log("Nodemailer error: " + err);
-          res.send({message: "Oops something went wrong"});
-        } else {
-          // console.log(info);
-          console.log("Message sent");
-          res.send({message: "Thank you, Your message was sent"});
-        }
-      });
+      // console.log(info);
+      console.log("Message sent");
+      res.send({message: "Thank you, Your message was sent"});
     }
+  });
 
   // console.log("Message sent from " + req.body.firstName + " " + req.body.lastName);
   // let mailOptions = {
