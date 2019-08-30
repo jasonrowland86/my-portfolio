@@ -7,8 +7,8 @@ const request = require('request');
 const app = express();
 
 // Serve static files from the React app
-// app.use(express.static(path.join(__dirname, '../client/build')));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../client/build')));
+// app.use(express.static('public'));
 
 // app.use(cors());
 app.use(bodyParser());
@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function (req, res) {
-  res.JSON({message: 'test'});
-  // res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  // res.JSON({message: 'test'});
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 const nodemailer = require('./services/nodemailer');
