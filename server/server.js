@@ -8,6 +8,7 @@ const app = express();
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
+// app.use('/static', express.static(path.join(__dirname, '..', 'build', 'static')));
 // app.use(express.static('public'));
 
 // app.use(cors());
@@ -21,22 +22,24 @@ app.get('/', function (req, res) {
 });
 
 const nodemailer = require('./services/nodemailer');
-app.get('/sendEmail', (req, res) => {
+app.post('/', (req, res) => {
   console.log('post!');
-  console.log(req.headers);
-  console.log("Message sent from " + req.headers[0] + " " + req.headers[1]);
-  // let mailOptions = {
-  //   from: req.body.email,
-  //   to: 'jasonrowland86@gmail.com',
-  //   subject: 'Contact form submitted from: ' + req.body.firstName + " " + req.body.lastName,
-  //   text: req.body.message
-  // };
+  // console.log(req.headers);
+  console.log(req.body);
+  // console.log("Message sent from " + req.headers[0] + " " + req.headers[1]);
+  console.log("Message sent from " + req.body.firstName + " " + req.body.lastName);
   let mailOptions = {
-    from: req.headers[2],
+    from: req.body.email,
     to: 'jasonrowland86@gmail.com',
-    subject: 'Contact form submitted from: ' + req.headers[0] + " " + req.headers[1],
-    text: req.headers[3]
+    subject: 'Contact form submitted from: ' + req.body.firstName + " " + req.body.lastName,
+    text: req.body.message
   };
+  // let mailOptions = {
+  //   from: req.headers[2],
+  //   to: 'jasonrowland86@gmail.com',
+  //   subject: 'Contact form submitted from: ' + req.headers[0] + " " + req.headers[1],
+  //   text: req.headers[3]
+  // };
   nodemailer.transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
       console.log("Nodemailer error: " + err);
