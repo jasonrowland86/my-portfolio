@@ -21,9 +21,9 @@ class Project extends React.Component {
 
   componentDidMount() {
     console.log('project did mount');
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     // this.context.handleLandingTitle(this.state.label, this.state.color);
     this.context.handleLandingTitle(this.props.project.data.name, this.state.color);
-    // window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     this.fadeIn();
   }
 
