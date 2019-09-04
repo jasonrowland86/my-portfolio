@@ -55,7 +55,7 @@ class Project extends React.Component {
   }
 
   render() {
-    // window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     let project = projects.filter(project => project.data.name === this.props.project.data.name);
     console.log(project[0]);
     let key = 0;
