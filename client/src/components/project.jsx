@@ -22,11 +22,12 @@ class Project extends React.Component {
   componentDidMount() {
     // this.context.handleLandingTitle(this.state.label, this.state.color);
     this.context.handleLandingTitle(this.props.project.data.name, this.state.color);
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    // window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     this.fadeIn();
   }
 
   fadeIn() {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     setTimeout(() => {
       this.setState({
         projectSection: {
