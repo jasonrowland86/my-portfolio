@@ -2,10 +2,6 @@ import React from 'react';
 import { ContentContext } from '../contexts/contentContext';
 import axios from "axios";
 require('../style_sheets/contact.css');
-// import {
-//   GoogleReCaptchaProvider,
-//   GoogleReCaptcha
-// } from 'react-google-recaptcha-v3';
 
 class Contact extends React.Component {
   static contextType = ContentContext;
@@ -22,15 +18,35 @@ class Contact extends React.Component {
       showResponse: {
         opacity: 0
       },
-      submitButton: true
+      submitButton: true,
+      answer: '',
+      answerValid: false,
+      submit: {
+        display: 'none',
+        opacity: 0
+      },
+      test: {
+        display: 'flex',
+        opacity: 1
+      }
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.testAnswer = this.testAnswer.bind(this);
   }
 
   componentDidMount() {
     this.context.handleLandingTitle(this.state.label, this.state.color);
     this.fadeIn();
+    //handle random numbers
+    let randomNumber1;
+    let randomNumber2;
+    randomNumber1 = Math.floor(Math.random() * 10);
+    randomNumber2 = Math.floor(Math.random() * 10);
+    this.setState({
+      randomNumber1: randomNumber1,
+      randomNumber2: randomNumber2,
+    })
   }
 
   fadeIn() {
@@ -89,6 +105,7 @@ class Contact extends React.Component {
                 }
             }).catch((response)=>{
                 console.log('error');
+                console.log(response);
                 this.clearForm();
                 let catchResponse = {data: {message: 'Oops something went wrong'}}
                 this.showResponse(catchResponse);
@@ -137,12 +154,54 @@ class Contact extends React.Component {
     }
   }
 
+  handleTestorSubmit() {
+    if (!this.state.answerValid) {
+      return   <div className="form-section-test">
+          <div className="form-section-test-left">
+            <div>{this.state.randomNumber1}</div>
+            <div>+</div>
+            <div>{this.state.randomNumber2}</div>
+            <div>=</div>
+            <div className="answer-input"><input className="input" type="text" onChange={this.handleChange} name="answer"/></div>
+          </div>
+          <div className="form-section-test-right">
+            <div className="answer-submit submit" onClick={this.testAnswer}>yes I'm human</div>
+          </div>
+        </div>
+    } else {
+      return <div>{this.handleSubmitButton()}</div>
+    }
+  }
+
   handleSubmitButton() {
     if (!this.state.submitButton) {
       return <div className="submit sub"><div className="submit-loading"><div>.</div><div>.</div><div>.</div></div></div>
     } else {
       return <div className="submit" onClick={this.handleSubmit}>send</div>
     }
+  }
+
+  testAnswer() {
+    let answer = this.state.randomNumber1 + this.state.randomNumber2;
+    answer = answer.toString();
+    if (this.state.answer === answer) {
+      this.setState({
+        answerValid: true
+      })
+    } else if (this.state.answer === '') {
+      var response = {data: {message: "Please verify you are human"}};
+      this.showResponse(response);
+    } else if (this.state.answer !== answer) {
+      var response = {data: {message: "Oops, wrong answer"}}
+      this.clearAnswer();
+      this.showResponse(response);
+    }
+  }
+
+  clearAnswer() {
+    this.setState({
+      answer: ' '
+    })
   }
 
   render() {
@@ -163,7 +222,7 @@ class Contact extends React.Component {
                 <textarea className="input" onChange={this.handleChange} name="message" ows="8" cols="80"></textarea>
               </div>
               <div className="form-section-submit">
-                {this.handleSubmitButton()}
+                {this.handleTestorSubmit()}
               </div>
             </div>
           </form>

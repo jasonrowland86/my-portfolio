@@ -31,13 +31,22 @@
   flex: 1;
   margin-bottom: 1em;
 }
+.project-description p {
+  margin-bottom: 1em;
+  line-height: 1.3em;
+}
+.project-description a {
+  text-decoration: underline;
+  font-weight: normal;
+}
 .project-skills {
   font-weight: bold;
-  margin-bottom: 1em;
+  margin-bottom: 3em;
 }
 .project-links {
   display: flex;
   flex-direction: column;
+  width: 10em;
 }
 .project-links div {
   border: 1px solid black;

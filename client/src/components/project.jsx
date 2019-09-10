@@ -55,6 +55,16 @@ class Project extends React.Component {
     }
   }
 
+  handleExtraLink(project) {
+    if (project.data.description.d === '') {
+      return <div></div>
+    } else {
+      return <div>
+        Click <a href={project.data.description.d} target="blank">here</a> to view the design this project was modeled after.
+      </div>
+    }
+  }
+
   render() {
     let project = projects.filter(project => project.data.name === this.props.project.data.name);
     console.log(project[0]);
@@ -68,7 +78,12 @@ class Project extends React.Component {
           <div className="project">
 
             <div className="project-info">
-              <div className="project-description"><p>{project[0].data.description}</p></div>
+              <div className="project-description">
+                <p>{project[0].data.description.a}</p>
+                <p>{project[0].data.description.b}</p>
+                <p>{project[0].data.description.c}</p>
+                {this.handleExtraLink(project[0])}
+              </div>
               <div className="project-skills"><h2>{project[0].data.technologies}</h2></div>
               <div className="project-links">
                 {this.handleProjectLink(project[0])}

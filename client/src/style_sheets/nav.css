@@ -27,10 +27,3 @@
   flex: 1;
   background-color: #FF7DEE;
 }
-.work-section {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100vw;
-  background-color: #EDFD5D;
-  padding-top: 3em;
-}

@@ -13,7 +13,7 @@
   margin-bottom: .5em;
   font-size: 3vw;
 }
-.form-section {
+.form-section , .form-section-test {
   width: 60vw;
   /* height: 100vh; */
 }
@@ -48,18 +48,50 @@ button:focus {
   margin-left: 1em;
   margin-bottom: 1em;
 }
+.form-section-test {
+  display: flex;
+  flex-direction: row;
+}
+.form-section-test div {
+
+}
+.form-section-test-left div , .form-section-test-right div {
+  align-self: center;
+  font-size: 1em;
+  font-weight: bold;
+  padding: .3em;
+  margin-left: .5em;
+}
+.form-section-test-left {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
+}
 .form-section-submit {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 1em;
-  margin-top: 3em;
+  margin-top: 1em;
   margin-bottom: 3em;
 }
 .form-section-submit input {
   font-size: 1em;
   margin-bottom: 2em;
   padding:  .3em .5em;
+}
+.answer-input input {
+  margin-bottom: 0;
+  font-size: 1em;
+  padding: .3em;
+  border-style: none;
+  border: 1px solid black;
+  background-color: #FF7DEE;
+  font-family: 'Ubuntu Mono', monospace;
+  width: 2em;
+}
+.answer-submit.submit{
+  margin-top: .3em;
 }
 label {
   margin-bottom: .5em;
@@ -74,7 +106,8 @@ label {
   padding: .3em .5em;
   text-align: center;
   width: 10em;
-  transition: all .3s ease-in-out;
+  /* transition: all .3s ease-in-out; */
+  transition: border .3s ease-in-out, background-color .3s ease-in-out;
   color: black;
 }
 .submit:hover {
@@ -131,8 +164,20 @@ label {
     height: 20vw;
   }
 }
+@media only screen and (max-width : 585px) {
+  .form-section-test {
+    display: flex;
+    flex-direction: column;
+  }
+  .answer-submit.submit{
+    margin-top: 0;
+  }
+}
 @media only screen and (max-width : 450px) {
   textarea {
     height: 30vw;
+  }
+  .form-section , .form-section-test {
+    width: 90vw;
   }
 }

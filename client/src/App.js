@@ -3,7 +3,6 @@ import './reset.css';
 import './App.css';
 import Landing from './components/landing';
 import Content from './components/content';
-// import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import ContentContextProvider from './contexts/contentContext';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 

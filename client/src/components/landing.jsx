@@ -36,7 +36,7 @@ class Landing extends React.Component {
         // this.context.toggleLandingH3();
         this.setState({
           nav: {
-            height: '1em',
+            height: '1.2em',
             display: 'flex',
             flexDirection: 'row',
           },
